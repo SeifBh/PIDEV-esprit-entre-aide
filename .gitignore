@@ -1,5 +1,9 @@
 *.log
 /phpunit.xml
+/.web-server-pid
+vendor/friendsofsymfony/user-bundle/
+*.log
+/phpunit.xml
 /var/*
 /var/cache
 /var/cache/*
@@ -13,3 +17,7 @@
 !var/SymfonyRequirements.php
 /.web-server-pid
 vendor/friendsofsymfony/user-bundle/
+/.idea
+/.idea/*
+.idea
+.idea/*

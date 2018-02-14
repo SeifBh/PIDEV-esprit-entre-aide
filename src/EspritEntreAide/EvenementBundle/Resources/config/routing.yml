@@ -30,3 +30,15 @@ _rechercher_events_date:
 _rechercher_events_nom:
     path:     /recherchereventnom
     defaults: { _controller: EvenementBundle:Default:rechercheNom }
+_traiter_prop_events:
+    path:     /traiterpropevent
+    defaults: { _controller: EvenementBundle:Default:traiterPropositionsEvt }
+_accepter_prop_events:
+    path:     /accepterprop
+    defaults: { _controller: EvenementBundle:Default:accepterPropositionsEvt }
+_refuser_prop_events:
+    path:     /refuserprop
+    defaults: { _controller: EvenementBundle:Default:refuserPropositionsEvt }
+_participer_events:
+    path:     /participerevent
+    defaults: { _controller: EvenementBundle:Default:participerEvent }

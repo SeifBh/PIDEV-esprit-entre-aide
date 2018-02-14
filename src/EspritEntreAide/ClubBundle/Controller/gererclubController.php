@@ -83,22 +83,27 @@ class gererclubController extends Controller
         $form = $this->createForm(ClubType::class, $cl);
         $form->handleRequest($request);
 
-
-
-        //Save?
         if($form->isValid()){
             $em->persist($cl);
             $em->flush();
             return $this->redirectToRoute('club_recherche');
         }
-        // Recuperation des donnees
-        //Remplir form
+
         return $this->render('@Club/Default/modifclub.html.twig',array('form'=>$form->createView()));
-            // .club..
-
-
-
     }
+
+    public function ajouterMembresAction(){
+        $em = $this->getDoctrine()->getManager();
+        $id=$_GET['id'];
+        $cl = $em->getRepository("ClubBundle:Club")->find($id);
+        $Membres=$this->getUser();
+        $cl->addMembres($Membres);
+        $em->persist($cl);
+        $em->flush();
+        return $this->redirectToRoute('club_affiche');
+    }
+
+
 
 
 

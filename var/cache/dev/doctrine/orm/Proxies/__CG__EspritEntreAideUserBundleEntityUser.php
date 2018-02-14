@@ -64,10 +64,10 @@ class User extends \EspritEntreAide\UserBundle\Entity\User implements \Doctrine\
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'id', '' . "\0" . 'EspritEntreAide\\UserBundle\\Entity\\User' . "\0" . 'nom', '' . "\0" . 'EspritEntreAide\\UserBundle\\Entity\\User' . "\0" . 'prenom', '' . "\0" . 'EspritEntreAide\\UserBundle\\Entity\\User' . "\0" . 'store', 'username', 'usernameCanonical', 'email', 'emailCanonical', 'enabled', 'salt', 'password', 'plainPassword', 'lastLogin', 'confirmationToken', 'passwordRequestedAt', 'groups', 'roles'];
+            return ['__isInitialized__', 'id', '' . "\0" . 'EspritEntreAide\\UserBundle\\Entity\\User' . "\0" . 'nom', '' . "\0" . 'EspritEntreAide\\UserBundle\\Entity\\User' . "\0" . 'prenom', '' . "\0" . 'EspritEntreAide\\UserBundle\\Entity\\User' . "\0" . 'store', '' . "\0" . 'EspritEntreAide\\UserBundle\\Entity\\User' . "\0" . 'clubs', '' . "\0" . 'EspritEntreAide\\UserBundle\\Entity\\User' . "\0" . 'participations', '' . "\0" . 'EspritEntreAide\\UserBundle\\Entity\\User' . "\0" . 'evenements', 'username', 'usernameCanonical', 'email', 'emailCanonical', 'enabled', 'salt', 'password', 'plainPassword', 'lastLogin', 'confirmationToken', 'passwordRequestedAt', 'groups', 'roles'];
         }
 
-        return ['__isInitialized__', 'id', '' . "\0" . 'EspritEntreAide\\UserBundle\\Entity\\User' . "\0" . 'nom', '' . "\0" . 'EspritEntreAide\\UserBundle\\Entity\\User' . "\0" . 'prenom', '' . "\0" . 'EspritEntreAide\\UserBundle\\Entity\\User' . "\0" . 'store', 'username', 'usernameCanonical', 'email', 'emailCanonical', 'enabled', 'salt', 'password', 'plainPassword', 'lastLogin', 'confirmationToken', 'passwordRequestedAt', 'groups', 'roles'];
+        return ['__isInitialized__', 'id', '' . "\0" . 'EspritEntreAide\\UserBundle\\Entity\\User' . "\0" . 'nom', '' . "\0" . 'EspritEntreAide\\UserBundle\\Entity\\User' . "\0" . 'prenom', '' . "\0" . 'EspritEntreAide\\UserBundle\\Entity\\User' . "\0" . 'store', '' . "\0" . 'EspritEntreAide\\UserBundle\\Entity\\User' . "\0" . 'clubs', '' . "\0" . 'EspritEntreAide\\UserBundle\\Entity\\User' . "\0" . 'participations', '' . "\0" . 'EspritEntreAide\\UserBundle\\Entity\\User' . "\0" . 'evenements', 'username', 'usernameCanonical', 'email', 'emailCanonical', 'enabled', 'salt', 'password', 'plainPassword', 'lastLogin', 'confirmationToken', 'passwordRequestedAt', 'groups', 'roles'];
     }
 
     /**
@@ -191,12 +191,67 @@ class User extends \EspritEntreAide\UserBundle\Entity\User implements \Doctrine\
     /**
      * {@inheritDoc}
      */
-    public function getCin()
+    public function getClubs()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCin', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getClubs', []);
 
-        return parent::getCin();
+        return parent::getClubs();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setClubs($clubs)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setClubs', [$clubs]);
+
+        return parent::setClubs($clubs);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getParticipations()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getParticipations', []);
+
+        return parent::getParticipations();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setParticipations($participations)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setParticipations', [$participations]);
+
+        return parent::setParticipations($participations);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getEvenements()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEvenements', []);
+
+        return parent::getEvenements();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setEvenements($evenements)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEvenements', [$evenements]);
+
+        return parent::setEvenements($evenements);
     }
 
     /**

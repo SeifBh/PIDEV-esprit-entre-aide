@@ -67,8 +67,58 @@ class Club
     private $image;
 
 
+    /**
+     * @ORM\OneToMany(targetEntity="EspritEntreAide\EvenementBundle\Entity\Evenement", mappedBy="idClub")
+     */
+    private $evenements;
+
+    /**
+     * @return mixed
+     */
+    public function getEvenements()
+    {
+        return $this->evenements;
+    }
+
+    /**
+     * @param mixed $evenements
+     */
+    public function setEvenements($evenements)
+    {
+        $this->evenements = $evenements;
+    }
 
 
+
+    /**
+     * @ORM\ManyToMany(targetEntity="EspritEntreAide\UserBundle\Entity\User", inversedBy="clubs")
+     * @ORM\JoinTable(name="membres_club")
+     */
+    private $membres;
+
+    /**
+     * @return mixed
+     */
+    public function getMembres()
+    {
+        return $this->membres;
+    }
+
+    /**
+     * @param mixed $membres
+     */
+    public function setMembres($membres)
+    {
+        $this->membres = $membres;
+    }
+
+    /**
+     * @param mixed $membres
+     */
+    public function addMembres($membres)
+    {
+        $this->membres[] = $membres;
+    }
 
 
     /**

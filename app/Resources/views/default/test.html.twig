@@ -119,10 +119,88 @@
 
     {% endblock %}
 </head>
+
+
 <body>
 
 <div class="section-header">
     {% block header %}
+        <style>
+            .middlebarmenu {
+                vertical-align: middle;
+                padding-top: 43px;
+                /* display: table-column-group; */
+            }
+
+            @import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
+            .snip1189 {
+                font-family: 'Raleway', Arial, sans-serif;
+                text-align: center;
+                text-transform: uppercase;
+                font-weight: 500;
+                letter-spacing: 1px;
+            }
+            .snip1189 * {
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                -webkit-transition: all 0.35s ease;
+                transition: all 0.35s ease;
+            }
+            .snip1189 li {
+                display: inline-block;
+                list-style: outside none none;
+                margin: 0 1em;
+                padding: 0;
+            }
+            .snip1189 a {
+                padding: 0.5em 0.8em;
+                margin: 0.2em 0;
+                display: block;
+                color: rgb(115, 16, 9);
+                position: relative;
+                text-decoration: none;
+            }
+            .snip1189 a:before,
+            .snip1189 a:after {
+                height: 14px;
+                width: 14px;
+                position: absolute;
+                content: '';
+                -webkit-transition: all 0.35s ease;
+                transition: all 0.35s ease;
+                opacity: 0;
+            }
+            .snip1189 a:before {
+                left: 0;
+                top: 0;
+                border-left: 3px solid #c0392b;
+                border-top: 3px solid #c0392b;
+                -webkit-transform: translate(100%, 50%);
+                transform: translate(100%, 50%);
+            }
+            .snip1189 a:after {
+                right: 0;
+                bottom: 0;
+                border-right: 3px solid #c0392b;
+                border-bottom: 3px solid #c0392b;
+                -webkit-transform: translate(-100%, -50%);
+                transform: translate(-100%, -50%);
+            }
+            .snip1189 a:hover,
+            .snip1189 .current a {
+                color: brown;
+            }
+            .snip1189 a:hover:before,
+            .snip1189 .current a:before,
+            .snip1189 a:hover:after,
+            .snip1189 .current a:after {
+                -webkit-transform: translate(0%, 0%);
+                transform: translate(0%, 0%);
+                opacity: 1;
+            }
+            /* Demo purposes only */
+
+        </style>
             <nav class="navbar navbar-default">
                     <div class="container-fluid">
                             <div class="col-md-2">
@@ -139,7 +217,25 @@
 
                                     </ul>
                             </div>
-                            <div class="col-md-2">C</div>
+                        <div class="col-md-2">
+
+                            <ul class="snip1189" style="padding-top: 12px !important;">
+                                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                    {{ app.user.username }}
+                                    <li class="loginperso"><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+                                {% endif %}
+
+
+                                {% if  is_granted('IS_AUTHENTICATED_FULLY') == false %}
+
+                                    <li class="loginperso"><a href="{{ path('fos_user_security_login') }}">Login</a></li>
+                                    <li class="singup"><a href="{{ path('fos_user_registration_register') }}">Register</a></li>
+                                {% endif %}
+                            </ul>
+
+
+                        </div>
+
                     </div>
             </nav>
 
@@ -147,6 +243,7 @@
 
     {% endblock %}
 </div>
+
 <div id="content">{% block content %}{% endblock %}</div>
 
 </body>
