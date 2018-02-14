@@ -19,3 +19,5 @@ vendor/friendsofsymfony/user-bundle/
 vendor/friendsofsymfony/user-bundle/
 /.idea
 /.idea/*
+.idea
+.idea/*
