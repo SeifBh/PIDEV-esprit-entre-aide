@@ -5,6 +5,7 @@ namespace EspritEntreAide\EvenementBundle\Form;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -29,8 +30,8 @@ class ModiferEvtType extends AbstractType
                     'Sportif'=> 'Sportif',
                     'Autre'=> 'Autre'
                 )))
-        ->add('imgEvt')
-        ->add('Modifier', SubmitType::class);
+            ->add('image', FileType::class, array('label' => 'Image(JPG)'))
+            ->add('Modifier', SubmitType::class);
     }/**
      * {@inheritdoc}
      */

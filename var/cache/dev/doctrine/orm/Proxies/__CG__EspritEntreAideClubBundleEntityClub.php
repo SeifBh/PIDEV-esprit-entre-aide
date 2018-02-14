@@ -64,10 +64,10 @@ class Club extends \EspritEntreAide\ClubBundle\Entity\Club implements \Doctrine\
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'id', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'nomC', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'mailC', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'dateCreation', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'idUser', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'descC', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'image'];
+            return ['__isInitialized__', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'id', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'nomC', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'mailC', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'dateCreation', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'idUser', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'descC', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'image', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'evenements', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'membres'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'id', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'nomC', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'mailC', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'dateCreation', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'idUser', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'descC', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'image'];
+        return ['__isInitialized__', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'id', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'nomC', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'mailC', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'dateCreation', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'idUser', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'descC', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'image', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'evenements', '' . "\0" . 'EspritEntreAide\\ClubBundle\\Entity\\Club' . "\0" . 'membres'];
     }
 
     /**
@@ -173,6 +173,61 @@ class Club extends \EspritEntreAide\ClubBundle\Entity\Club implements \Doctrine\
     }
 
     
+    /**
+     * {@inheritDoc}
+     */
+    public function getEvenements()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEvenements', []);
+
+        return parent::getEvenements();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setEvenements($evenements)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEvenements', [$evenements]);
+
+        return parent::setEvenements($evenements);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getMembres()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMembres', []);
+
+        return parent::getMembres();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setMembres($membres)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMembres', [$membres]);
+
+        return parent::setMembres($membres);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addMembres($membres)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addMembres', [$membres]);
+
+        return parent::addMembres($membres);
+    }
+
     /**
      * {@inheritDoc}
      */

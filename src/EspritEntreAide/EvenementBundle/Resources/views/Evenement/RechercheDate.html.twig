@@ -39,7 +39,7 @@
             </tr>
             {% for evt in evts %}
                 <tr>
-                    <td> <img src="{{ asset(evt.imgEvt) }}" > </td>
+                    <td> <img src="{{ asset('uploads/images/' ~ evt.image) }}" height="100px" width="250px"> </td>
                     <td>{{ evt.titreE }}</td>
                     <td>{{ evt.descE }}</td>
                     <td>{{ evt.dateE | date('d-m-y H:i') }}</td>
