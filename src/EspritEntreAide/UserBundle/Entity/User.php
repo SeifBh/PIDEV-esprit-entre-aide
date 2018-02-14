@@ -71,6 +71,48 @@ class User extends BaseUser
         $this->clubs = $clubs;
     }
 
+    /**
+     * @ORM\ManyToMany(targetEntity="EspritEntreAide\EvenementBundle\Entity\Evenement", mappedBy="participants")
+     */
+    private $participations;
+
+    /**
+     * @return mixed
+     */
+    public function getParticipations()
+    {
+        return $this->participations;
+    }
+
+    /**
+     * @param mixed $participations
+     */
+    public function setParticipations($participations)
+    {
+        $this->participations = $participations;
+    }
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="EspritEntreAide\EvenementBundle\Entity\Evenement", mappedBy="idUser")
+     */
+    private $evenements;
+
+    /**
+     * @return mixed
+     */
+    public function getEvenements()
+    {
+        return $this->evenements;
+    }
+
+    /**
+     * @param mixed $evenements
+     */
+    public function setEvenements($evenements)
+    {
+        $this->evenements = $evenements;
+    }
 
 
     /**

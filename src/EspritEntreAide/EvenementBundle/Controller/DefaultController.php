@@ -143,4 +143,46 @@ class DefaultController extends Controller
             'form'=>$form->createView(),'evts'=>$evt
         ));
     }
+
+    public function traiterPropositionsEvtAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $evt = $em->getRepository("EvenementBundle:Evenement")->findBy(array('etat'=>1));
+
+        return $this->render('EvenementBundle:Evenement:TraiterPropostitionsEvt.html.twig', array("evts" => $evt
+        ));
+    }
+    public function accepterPropositionsEvtAction()
+    {
+        $id=$_GET['id'];
+        $evt=$this->getDoctrine()->getRepository('EvenementBundle:Evenement')->find($id);
+        $evt->setEtat(0);
+        $em=$this->getDoctrine()->getManager();
+        $em->persist($evt);
+        $em->flush();
+        return $this->redirectToRoute('_traiter_prop_events');
+    }
+    public function refuserPropositionsEvtAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $id=$_GET['id'];
+        $evt = $em->getRepository("EvenementBundle:Evenement")->find($id);
+        $em->remove($evt);
+        $em->flush();
+        return $this->redirectToRoute('_traiter_prop_events');
+
+    }
+    public function participerEventAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $id=$_GET['id'];
+        $evt = $em->getRepository("EvenementBundle:Evenement")->find($id);
+
+        $participant=$this->getUser();
+        $evt->addParticipants($participant);
+        $em->persist($evt);
+        $em->flush();
+        return $this->redirectToRoute('_afficher_events');
+    }
+
 }
