@@ -3,6 +3,8 @@
 namespace EspritEntreAide\EvenementBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use EspritEntreAide\UserBundle\Entity\User;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Evenement
@@ -44,40 +46,91 @@ class Evenement
 
 
     /**
-     * @ORM\OneToOne(targetEntity="EspritEntreAide\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="EspritEntreAide\UserBundle\Entity\User", inversedBy="evenements")
      * @ORM\JoinColumn(name="id_user",referencedColumnName="id")
      */
     private $idUser;
 
     /**
-     * @ORM\OneToOne(targetEntity="EspritEntreAide\ClubBundle\Entity\Club")
+     * @var string
+     *
+     * @ORM\Column(name="usr_role", type="string", nullable=true)
+     */
+    private $usrRole;
+
+    /**
+     * @return string
+     */
+    public function getUsrRole()
+    {
+        return $this->usrRole;
+    }
+
+    /**
+     * @param string $usrRole
+     */
+    public function setUsrRole($usrRole)
+    {
+        $this->usrRole = $usrRole;
+    }
+
+
+    /**
+     * @ORM\ManyToMany(targetEntity="EspritEntreAide\UserBundle\Entity\User", inversedBy="participations")
+     * @ORM\JoinTable(name="participants_evenements")
+     */
+    private $participants;
+
+    /**
+     * @return mixed
+     */
+    public function getParticipants()
+    {
+        return $this->participants;
+    }
+
+    /**
+     * @param mixed $participants
+     */
+    public function setParticipants($participants)
+    {
+        $this->participants = $participants;
+    }
+    /**
+     * @param mixed $participants
+     */
+    public function addParticipants($participants)
+    {
+        $this->participants[] = $participants;
+    }
+
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="EspritEntreAide\ClubBundle\Entity\Club", inversedBy="evenements")
      * @ORM\JoinColumn(name="id_club",referencedColumnName="id")
      */
     private $idClub;
 
     /**
-     * @var string
+     * @ORM\Column(type="string")
      *
-     * @ORM\Column(name="img_evt", nullable=true)
+     * @Assert\NotBlank(message="Ajouter une image jpg")
+     * @Assert\File(mimeTypes={ "image/jpeg" })
      */
-    private $img_evt;
+    private $image;
 
-    /**
-     * @return string
-     */
-    public function getImgEvt()
+    public function getImage()
     {
-        return $this->img_evt;
+        return $this->image;
     }
 
-    /**
-     * @param string $img_evt
-     */
-    public function setImgEvt($img_evt)
+    public function setImage($image)
     {
-        $this->img_evt = $img_evt;
-    }
+        $this->image = $image;
 
+        return $this;
+    }
 
     /**
      * @var string

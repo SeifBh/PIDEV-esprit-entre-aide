@@ -38,11 +38,24 @@ services:
      arguments: ['%images_directory%']
 
 
-
-
     Club.doctrine_image_listener:
      class: EspritEntreAide\ClubBundle\Entity\UploadImageListener
      arguments: ['@Club.image_uploader']
+     tags:
+       - { name: doctrine.event_listener, event: prePersist }
+       - { name: doctrine.event_listener, event: preUpdate }
+
+
+    Evenement.image_uploader:
+     class: EspritEntreAide\EvenementBundle\ImageUpload
+     arguments: ['%images_directory%']
+
+
+
+
+    Evenement.doctrine_image_listener:
+     class: EspritEntreAide\EvenementBundle\Entity\UploadImageListener
+     arguments: ['@Evenement.image_uploader']
      tags:
        - { name: doctrine.event_listener, event: prePersist }
        - { name: doctrine.event_listener, event: preUpdate }
