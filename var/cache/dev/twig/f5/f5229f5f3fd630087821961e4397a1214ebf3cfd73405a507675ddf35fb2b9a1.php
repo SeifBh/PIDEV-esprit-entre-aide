@@ -15,11 +15,11 @@ class __TwigTemplate_c1e1b94f64ba86d3ff75197712f03fe972410b94dfdb57820f03671673e
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_2397b09432233573817f3743bee5caecc2a357f3cd61ef880175ead6a7797f83 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_2397b09432233573817f3743bee5caecc2a357f3cd61ef880175ead6a7797f83->enter($__internal_2397b09432233573817f3743bee5caecc2a357f3cd61ef880175ead6a7797f83_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "admin/partial/sidebar.html.twig"));
+        $__internal_ba853e4d7026955fc4b265e356891613319e9f7fc9964c5cd250f7da0665d417 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_ba853e4d7026955fc4b265e356891613319e9f7fc9964c5cd250f7da0665d417->enter($__internal_ba853e4d7026955fc4b265e356891613319e9f7fc9964c5cd250f7da0665d417_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "admin/partial/sidebar.html.twig"));
 
-        $__internal_64993d5b61d64ef303e303adbf802120fc8f992d5171c7c3e93d29af584fdf5f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_64993d5b61d64ef303e303adbf802120fc8f992d5171c7c3e93d29af584fdf5f->enter($__internal_64993d5b61d64ef303e303adbf802120fc8f992d5171c7c3e93d29af584fdf5f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "admin/partial/sidebar.html.twig"));
+        $__internal_a63a8044626697d7c629b8e79dbb99961e7786c9575fff9acecec2dba9aa6467 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_a63a8044626697d7c629b8e79dbb99961e7786c9575fff9acecec2dba9aa6467->enter($__internal_a63a8044626697d7c629b8e79dbb99961e7786c9575fff9acecec2dba9aa6467_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "admin/partial/sidebar.html.twig"));
 
         // line 1
         echo "
@@ -81,7 +81,7 @@ class __TwigTemplate_c1e1b94f64ba86d3ff75197712f03fe972410b94dfdb57820f03671673e
 \t\t<li class=\"\">
 \t\t\t<a href=\"#\">
 \t\t\t\t<i class=\"menu-icon fa fa-tachometer\"></i>
-\t\t\t\t<span class=\"menu-text\"> Club sdsds  </span>
+\t\t\t\t<span class=\"menu-text\"> Clubs  </span>
 \t\t\t</a>
 
 \t\t\t<b class=\"arrow\"></b>
@@ -89,7 +89,7 @@ class __TwigTemplate_c1e1b94f64ba86d3ff75197712f03fe972410b94dfdb57820f03671673e
 \t\t<li class=\"\">
 \t\t\t<a href=\"#\" class=\"dropdown-toggle\">
 \t\t\t\t<i class=\"menu-icon fa fa-tag\"></i>
-\t\t\t\t<span class=\"menu-text\"> Gestion Club </span>
+\t\t\t\t<span class=\"menu-text\"> Gestion Cl2ub </span>
 
 \t\t\t\t<b class=\"arrow fa fa-angle-down\"></b>
 \t\t\t</a>
@@ -254,10 +254,10 @@ class __TwigTemplate_c1e1b94f64ba86d3ff75197712f03fe972410b94dfdb57820f03671673e
 \t</div>
 </div>";
         
-        $__internal_2397b09432233573817f3743bee5caecc2a357f3cd61ef880175ead6a7797f83->leave($__internal_2397b09432233573817f3743bee5caecc2a357f3cd61ef880175ead6a7797f83_prof);
+        $__internal_ba853e4d7026955fc4b265e356891613319e9f7fc9964c5cd250f7da0665d417->leave($__internal_ba853e4d7026955fc4b265e356891613319e9f7fc9964c5cd250f7da0665d417_prof);
 
         
-        $__internal_64993d5b61d64ef303e303adbf802120fc8f992d5171c7c3e93d29af584fdf5f->leave($__internal_64993d5b61d64ef303e303adbf802120fc8f992d5171c7c3e93d29af584fdf5f_prof);
+        $__internal_a63a8044626697d7c629b8e79dbb99961e7786c9575fff9acecec2dba9aa6467->leave($__internal_a63a8044626697d7c629b8e79dbb99961e7786c9575fff9acecec2dba9aa6467_prof);
 
     }
 
@@ -337,7 +337,7 @@ class __TwigTemplate_c1e1b94f64ba86d3ff75197712f03fe972410b94dfdb57820f03671673e
 \t\t<li class=\"\">
 \t\t\t<a href=\"#\">
 \t\t\t\t<i class=\"menu-icon fa fa-tachometer\"></i>
-\t\t\t\t<span class=\"menu-text\"> Club sdsds  </span>
+\t\t\t\t<span class=\"menu-text\"> Clubs  </span>
 \t\t\t</a>
 
 \t\t\t<b class=\"arrow\"></b>
@@ -345,7 +345,7 @@ class __TwigTemplate_c1e1b94f64ba86d3ff75197712f03fe972410b94dfdb57820f03671673e
 \t\t<li class=\"\">
 \t\t\t<a href=\"#\" class=\"dropdown-toggle\">
 \t\t\t\t<i class=\"menu-icon fa fa-tag\"></i>
-\t\t\t\t<span class=\"menu-text\"> Gestion Club </span>
+\t\t\t\t<span class=\"menu-text\"> Gestion Cl2ub </span>
 
 \t\t\t\t<b class=\"arrow fa fa-angle-down\"></b>
 \t\t\t</a>
@@ -502,6 +502,6 @@ class __TwigTemplate_c1e1b94f64ba86d3ff75197712f03fe972410b94dfdb57820f03671673e
 \t<div class=\"sidebar-toggle sidebar-collapse\" id=\"sidebar-collapse\">
 \t\t<i id=\"sidebar-toggle-icon\" class=\"ace-icon fa fa-angle-double-left ace-save-state\" data-icon1=\"ace-icon fa fa-angle-double-left\" data-icon2=\"ace-icon fa fa-angle-double-right\"></i>
 \t</div>
-</div>", "admin/partial/sidebar.html.twig", "C:\\wamp64\\www\\pidev00\\app\\Resources\\views\\admin\\partial\\sidebar.html.twig");
+</div>", "admin/partial/sidebar.html.twig", "C:\\wamp64\\www\\pidemo\\app\\Resources\\views\\admin\\partial\\sidebar.html.twig");
     }
 }

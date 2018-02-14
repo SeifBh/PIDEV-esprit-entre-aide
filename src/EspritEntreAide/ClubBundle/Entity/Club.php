@@ -115,7 +115,7 @@ class Club
     /**
      * @param mixed $membres
      */
-    public function addMembers($membres)
+    public function addMembres($membres)
     {
         $this->membres[] = $membres;
     }
