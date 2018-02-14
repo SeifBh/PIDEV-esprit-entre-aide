@@ -14,13 +14,13 @@ store_remove:
 
 demande_index:
     path:     /demandeIndex
-    defaults: { _controller: StoreBundle:Default:index }
+    defaults: { _controller: StoreBundle:Demande:index }
 demande_new:
     path:     /demandeNew
-    defaults: { _controller: StoreBundle:Default:new }
+    defaults: { _controller: StoreBundle:Demande:new }
 demande_remove:
     path:     /{id}/demandeRemove
-    defaults: { _controller: StoreBundle:Default:remove }
+    defaults: { _controller: StoreBundle:Demande:remove }
 
 
 

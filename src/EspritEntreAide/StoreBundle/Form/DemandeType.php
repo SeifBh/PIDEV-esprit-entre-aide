@@ -20,7 +20,7 @@ class DemandeType extends AbstractType
         $builder
             ->add('nbrCopie')
             ->add('idStore',EntityType::class,array(
-                'class'=>Store::class,
+                'class'=>"EspritEntreAide\StoreBundle\Entity\Store",
                 'choice_label'=>'nomStore'
             ))
             ->add('deadline')

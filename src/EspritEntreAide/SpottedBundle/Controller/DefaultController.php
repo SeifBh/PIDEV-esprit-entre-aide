@@ -7,14 +7,19 @@ use EspritEntreAide\SpottedBundle\Entity\Commentaire;
 use EspritEntreAide\SpottedBundle\Entity\Publication;
 use EspritEntreAide\SpottedBundle\Form\CommentaireType;
 use EspritEntreAide\SpottedBundle\Form\PublicationType;
+use EspritEntreAide\SpottedBundle\Form\RechercheType;
 use EspritEntreAide\UserBundle\Entity\User;
 use FOS\UserBundle\FOSUserBundle;
 use FOS\UserBundle\Model\User as Seif;
 use FOS\UserBundle\Model\UserInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
+
 class DefaultController extends Controller
 {
     public function indexAction()
@@ -181,6 +186,33 @@ class DefaultController extends Controller
         $em->remove($commentaire);
         $em->flush();
         return $this->redirectToRoute('_list_spotted');
+    }
+
+    public function RechercheAction(Request $request){
+        $voiture=new Publication();
+        $em=$this->getDoctrine()->getManager();
+        $Form=$this->createForm(RechercheType::class,$voiture);
+        $Form->handleRequest($request);
+        if($request->isXmlHttpRequest() ){
+
+            $ser=$request->get('s');
+
+            $voiture=$em->getRepository("SpottedBundle:Publication")->findBy(array('titreP'=>$ser));
+            $serialzier = new Serializer(array(new ObjectNormalizer()));
+            $v = $serialzier->normalize($voiture);
+
+            return new JsonResponse($v);
+
+        }
+        else{
+            $voiture=$em->getRepository("SpottedBundle:Publication")->findAll();
+
+        }
+        return $this->render("SpottedBundle:Default:rechercher.html.twig",array(
+                'Form'=>$Form->createView(),
+            'voitures'=>$voiture
+        ));
+
     }
 
 }

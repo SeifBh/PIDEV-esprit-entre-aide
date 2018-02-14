@@ -50,13 +50,6 @@ class User extends BaseUser
         return $this->id;
     }
 
-    /**
-     * @return int
-     */
-    public function getCin()
-    {
-        return $this->cin;
-    }
 
 
 
