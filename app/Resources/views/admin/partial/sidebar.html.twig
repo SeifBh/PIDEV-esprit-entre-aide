@@ -46,26 +46,9 @@
 
 
 		<li class="">
-			<a href="#">
-				<i class="menu-icon fa fa-tachometer"></i>
-				<span class="menu-text"> Annonces  </span>
-			</a>
-
-			<b class="arrow"></b>
-		</li>
-
-		<li class="">
-			<a href="#">
-				<i class="menu-icon fa fa-tachometer"></i>
-				<span class="menu-text"> Clubs  </span>
-			</a>
-
-			<b class="arrow"></b>
-		</li>
-		<li class="">
 			<a href="#" class="dropdown-toggle">
 				<i class="menu-icon fa fa-tag"></i>
-				<span class="menu-text"> Gestion Club </span>
+				<span class="menu-text"> Gestion annonces </span><!--*********************************************************************-->
 
 				<b class="arrow fa fa-angle-down"></b>
 			</a>
@@ -73,7 +56,52 @@
 			<b class="arrow"></b>
 
 			<ul class="submenu">
+				<li class="">                               <!--*******************ajout annonce**************************-->
+					<a href="{{ path('_annonce_ajouter') }}">
+						<i class="menu-icon fa fa-caret-right"></i>
+						ajout annonce
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+
+
+
 				<li class="">
+					<a href="{{ path('_affiche') }}">    <!--*******************affichage annonce**************************-->
+						<i class="menu-icon fa fa-caret-right"></i>
+						liste annonce
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+
+				<li class="">
+					<a href="{{ path('_annonce_chercher') }}">    <!--*******************recherche annonce**************************-->
+						<i class="menu-icon fa fa-caret-right"></i>
+						recherche annonce
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+
+
+			</ul>
+		</li>
+
+
+		<li class="">
+			<a href="#" class="dropdown-toggle">
+				<i class="menu-icon fa fa-tag"></i>
+				<span class="menu-text"> Gestion Clubs </span><!--*********************************************************************-->
+
+				<b class="arrow fa fa-angle-down"></b>
+			</a>
+
+			<b class="arrow"></b>
+
+			<ul class="submenu">
+				<li class="">                               <!--*******************ajout club**************************-->
 					<a href="{{ path('club_ajout') }}">
 						<i class="menu-icon fa fa-caret-right"></i>
 						Ajout Club
@@ -85,7 +113,7 @@
 
 
 				<li class="">
-					<a href="{{ path('club_affiche') }}">
+					<a href="{{ path('club_affiche') }}">    <!--*******************affichage club**************************-->
 						<i class="menu-icon fa fa-caret-right"></i>
 						List Club
 					</a>
@@ -93,41 +121,145 @@
 					<b class="arrow"></b>
 				</li>
 
+				<li class="">
+					<a href="{{ path('club_affiche') }}">    <!--*******************recherche club**************************-->
+						<i class="menu-icon fa fa-caret-right"></i>
+						recherche club
+					</a>
 
-
-
-
-
+					<b class="arrow"></b>
+				</li>
 
 			</ul>
 		</li>
+
+
+
 		<li class="">
-			<a href="#">
-				<i class="menu-icon fa fa-tachometer"></i>
-				<span class="menu-text"> Evénements  </span>
+			<a href="#" class="dropdown-toggle">
+				<i class="menu-icon fa fa-tag"></i>
+				<span class="menu-text"> Gestion Evénements </span><!--*********************************************************************-->
+
+				<b class="arrow fa fa-angle-down"></b>
 			</a>
 
 			<b class="arrow"></b>
+
+			<ul class="submenu">
+				<li class="">                               <!--*******************ajout Evénement**************************-->
+					<a href="{{ path('club_ajout') }}">
+						<i class="menu-icon fa fa-caret-right"></i>
+						ajout Evénement
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+
+
+
+				<li class="">
+					<a href="{{ path('club_affiche') }}">    <!--*******************affichage Evénement**************************-->
+						<i class="menu-icon fa fa-caret-right"></i>
+						List Evénement
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+
+				<li class="">
+					<a href="{{ path('club_affiche') }}">    <!--*******************recherche Evénement**************************-->
+						<i class="menu-icon fa fa-caret-right"></i>
+						recherche Evénement
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+			</ul>
 		</li>
 
-
-
 		<li class="">
-			<a href="#">
-				<i class="menu-icon fa fa-tachometer"></i>
-				<span class="menu-text"> Photo copies  </span>
+			<a href="#" class="dropdown-toggle">
+				<i class="menu-icon fa fa-tag"></i>
+				<span class="menu-text"> Gestion photocopies </span><!--*********************************************************************-->
+
+				<b class="arrow fa fa-angle-down"></b>
 			</a>
 
 			<b class="arrow"></b>
+
+			<ul class="submenu">
+				<li class="">                               <!--*******************ajout photocopie**************************-->
+					<a href="{{ path('club_ajout') }}">
+						<i class="menu-icon fa fa-caret-right"></i>
+						ajout photocopie
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+
+
+
+				<li class="">
+					<a href="{{ path('club_affiche') }}">    <!--*******************affichage photocopie**************************-->
+						<i class="menu-icon fa fa-caret-right"></i>
+						List photocopie
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+
+				<li class="">
+					<a href="{{ path('club_affiche') }}">    <!--*******************recherche photocopie**************************-->
+						<i class="menu-icon fa fa-caret-right"></i>
+						recherche photocopie
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+
+			</ul>
 		</li>
 
 		<li class="">
-			<a href="#">
-				<i class="menu-icon fa fa-tachometer"></i>
-				<span class="menu-text"> SPOTTED  </span>
+			<a href="#" class="dropdown-toggle">
+				<i class="menu-icon fa fa-tag"></i>
+				<span class="menu-text"> Gestion SPOTTED </span><!--*********************************************************************-->
+
+				<b class="arrow fa fa-angle-down"></b>
 			</a>
 
 			<b class="arrow"></b>
+
+			<ul class="submenu">
+				<li class="">                               <!--*******************ajout SPOTTED**************************-->
+					<a href="{{ path('club_ajout') }}">
+						<i class="menu-icon fa fa-caret-right"></i>
+						ajout SPOTTED
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+
+
+
+				<li class="">
+					<a href="{{ path('club_affiche') }}">    <!--*******************affichage SPOTTED**************************-->
+						<i class="menu-icon fa fa-caret-right"></i>
+						List SPOTTED
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+
+				<li class="">
+					<a href="{{ path('club_affiche') }}">    <!--*******************recherche SPOTTED**************************-->
+						<i class="menu-icon fa fa-caret-right"></i>
+						recherche SPOTTED
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+			</ul>
 		</li>
 
 
