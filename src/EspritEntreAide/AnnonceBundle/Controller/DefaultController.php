@@ -17,10 +17,22 @@ class DefaultController extends Controller
 
     public function afficheAction()
     {
+
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')
+            or $this->get('security.authorization_checker')->isGranted('ROLE_RESPONSABLE_SUPER_ADMIN')
+            or $this->get('security.authorization_checker')->isGranted('ROLE_SUPER_ADMIN')){
+
+            $em = $this->getDoctrine()->getManager();
+            $annonce = $em->getRepository("AnnonceBundle:Annonce")->findAll();
+            return $this->render('admin/partial/AnnonceAdmin/afficheAnnonceAdmin.html.twig', array(
+                "annonce" => $annonce
+            ));
+        }
+
         $em = $this->getDoctrine()->getManager();
-        $evt = $em->getRepository("AnnonceBundle:Annonce")->findAll();
+        $annonce = $em->getRepository("AnnonceBundle:Annonce")->findAll();
         return $this->render('AnnonceBundle::AfficherAnnonce.html.twig', array(
-            "evts" => $evt
+            "annonce" => $annonce
         ));
 
     }
@@ -28,9 +40,26 @@ class DefaultController extends Controller
     public function ajouterAnnonceAction(Request $request)
     {
         $an = new Annonce();
-        // $an->setDateA();
         $form = $this->createForm(AnnonceType::class, $an);
         $form->handleRequest($request);//creation d'une session pr stocker les valeurs de l'input
+
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')
+            or $this->get('security.authorization_checker')->isGranted('ROLE_RESPONSABLE_SUPER_ADMIN')
+            or $this->get('security.authorization_checker')->isGranted('ROLE_SUPER_ADMIN')) {
+
+            if ($form->isValid()) {
+                $an->setIdUser($this->getUser());
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($an);
+                $em->flush();
+                return $this->redirectToRoute('annonce_homepage');
+            }
+            return $this->render(':admin/partial/AnnonceAdmin:ajouterAnnonceAdmin.html.twig', array(
+                'form' => $form->createView()
+            ));
+        }
+
+
         if ($form->isValid()) {
             $an->setIdUser($this->getUser());
             $em = $this->getDoctrine()->getManager();
@@ -47,6 +76,29 @@ class DefaultController extends Controller
 
     function chercherAnnonceAction(Request $request)
     {
+
+
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')
+            or $this->get('security.authorization_checker')->isGranted('ROLE_RESPONSABLE_SUPER_ADMIN')
+            or $this->get('security.authorization_checker')->isGranted('ROLE_SUPER_ADMIN')){
+            $an=new Annonce();
+            $em=$this->getDoctrine()->getManager();
+            $form=$this->createForm(ChercherAnnonceType::class,$an);
+            $form->handleRequest($request);/*creation d'une session pr stocker les valeurs de l'input*/
+            if($form->isValid()){
+
+                $an=$em->getRepository("AnnonceBundle:Annonce")->findBy(array('titreA'=>$an->getTitreA()));
+
+            }else{
+                $an=$em->getRepository("AnnonceBundle:Annonce")->findAll();
+
+            }
+
+            return $this->render(':admin/partial/AnnonceAdmin:chercherAnnonceAdmin.html.twig',array(
+                'form'=>$form->createView(),'annonce'=>$an
+            ));
+
+        }
         $an=new Annonce();
         $em=$this->getDoctrine()->getManager();
         $form=$this->createForm(ChercherAnnonceType::class,$an);
