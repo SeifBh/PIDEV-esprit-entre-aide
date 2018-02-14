@@ -111,7 +111,7 @@ class DefaultController extends Controller
         $commentaire = new Commentaire();
         $em=$this->getDoctrine()->getManager();
 
-        $lstcomments = $em->getRepository("SpottedBundle:Commentaire",$commentaire)->findAll();
+        $lstcomments = $em->getRepository("SpottedBundle:Commentaire",$commentaire)->findBy(array('idPublication'=>$id));
 
 
 
