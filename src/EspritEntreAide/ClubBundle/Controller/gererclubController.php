@@ -100,6 +100,17 @@ class gererclubController extends Controller
 
     }
 
+    public function ajouterMembresAction(){
+        $em = $this->getDoctrine()->getManager();
+        $id=$_GET['id'];
+        $cl = $em->getRepository("ClubBundle:Club")->find($id);
+
+        $membres=$this->getUser();
+        $cl->addMembers($membres);
+        $em->persist($cl);
+        $em->flush();
+        return $this->redirectToRoute('club_affiche');
+    }
 
 
 }

@@ -50,6 +50,26 @@ class User extends BaseUser
         return $this->id;
     }
 
+    /**
+     * @ORM\ManyToMany(targetEntity="EspritEntreAide\ClubBundle\Entity\Club", mappedBy="membres")
+     */
+    private $clubs;
+
+    /**
+     * @return mixed
+     */
+    public function getClubs()
+    {
+        return $this->clubs;
+    }
+
+    /**
+     * @param mixed $clubs
+     */
+    public function setClubs($clubs)
+    {
+        $this->clubs = $clubs;
+    }
 
 
 

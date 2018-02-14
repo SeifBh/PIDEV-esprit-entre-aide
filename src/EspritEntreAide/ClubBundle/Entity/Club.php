@@ -66,9 +66,35 @@ class Club
      */
     private $image;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="EspritEntreAide\UserBundle\Entity\User", inversedBy="clubs")
+     * @ORM\JoinTable(name="membres_club")
+     */
+    private $membres;
 
+    /**
+     * @return mixed
+     */
+    public function getMembres()
+    {
+        return $this->membres;
+    }
 
+    /**
+     * @param mixed $membres
+     */
+    public function setMembres($membres)
+    {
+        $this->membres = $membres;
+    }
 
+    /**
+     * @param mixed $membres
+     */
+    public function addMembers($membres)
+    {
+        $this->membres[] = $membres;
+    }
 
 
     /**

@@ -21,3 +21,6 @@ club_supprime:
 _club_modifier:
     path:     /modifier{id}
     defaults: { _controller: ClubBundle:gererclub:Modifier }
+_club_adherer:
+    path:     /adherer
+    defaults: { _controller: ClubBundle:gererclub:ajouterMembres }

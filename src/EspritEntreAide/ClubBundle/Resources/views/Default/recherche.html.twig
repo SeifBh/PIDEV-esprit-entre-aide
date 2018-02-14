@@ -49,7 +49,9 @@
                 %}
                 <td><a href="{{ path('club_supprime',{'id':c.id}) }}">Supprimer</a></td>
                 <td><a href="{{ path('_club_modifier',{'id':c.id}) }}">Modifier</a></td>
+
                 {% endif %}
+                <td><a href="{{ path('_club_modifier',{'id':c.id}) }}">Adhérer</a></td>
 
             </tr>
         {% endfor %}
