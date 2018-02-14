@@ -1,5 +1,6 @@
 *.log
 /phpunit.xml
+/var
 /var/*
 /var/cache
 /var/cache/*
