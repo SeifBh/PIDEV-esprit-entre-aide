@@ -1,36 +1,31 @@
-{% extends ":default:test.html.twig" %}
-
-
-{% block title %}Club{% endblock %}
-{% block head %}
-    {{ parent() }}
+{% extends ":default:test.html.twig" %} {% block title %}Club{% endblock %} {% block head %} {{ parent() }}
     <style type="text/css">
         .important { color: #336699; }
 
-    </style>
-{% endblock %}
-{% block content %}
+    </style>{% endblock %} {% block content %}
     <div class="big-div-club">
         <h1><b>Interface club</b></h1>
     </div>
     <center>
-        {% if (is_granted('ROLE_RESPONSABLE_SUPER_ADMIN'))
-        or(is_granted('ROLE_SUPER_ADMIN'))
-        or(is_granted('ROLE_ADMIN'))  %}
-        <li><a href="{{ path('club_ajout') }}"> Ajouter un club </a></li>
-        {% endif %}
+        <h1>Que voulez-vous faire?</h1><br>
+        {% if (is_granted('ROLE_RESPONSABLE_SUPER_ADMIN'))or(is_granted('ROLE_SUPER_ADMIN'))or(is_granted('ROLE_ADMIN')) %}
+        <ul>
+            <li>
+                <a href="{{path('club_ajout')}}">Ajouter un club</a>
+            </li>
+            <li>
+                <a href="{{ path('club_affiche')}}">Gerer un club</a>
+            </li>
 
-        <li><a href="{{ path('club_recherche') }}"> Rechercher un club </a></li>
-
-
+            <li style="list-style: none">
+                {% endif %}
+                {% if(is_granted('ROLE_RESPONSABLE_CLUB'))  or(is_granted('ROLE_ETUDIANT')) %}</li>
+            <li>
+                <a href="{{path('club_recherche')}}">Rechercher un club</a>
+            </li>
+            <li style="list-style: none">
+                {% endif %}
+            </li>
+        </ul>
     </center>
-
-    <p class="important">
-
-    </p>
-{% endblock %}
-
-
-
-
-
+    <p class="important"></p>{% endblock %}

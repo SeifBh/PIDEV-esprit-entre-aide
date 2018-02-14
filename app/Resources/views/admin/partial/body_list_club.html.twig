@@ -83,33 +83,13 @@
                 </div><!-- /.ace-settings-container -->
                 <div class="page-header">
                     <h1>
-                        Tableau de bord
+                        Afficher club Club 2
 
                     </h1>
                 </div><!-- /.page-header -->
+                <fieldset>
+                    {% if is_granted('ROLE_RESPONSABLE_SUPER_ADMIN') or is_granted('ROLE_ADMIN')or is_granted('ROLE_RESPONSABLE_CLUB') or is_granted('ROLE_SUPER_ADMIN') %}
 
-                {% extends ":default:test.html.twig" %}
-
-
-                {% block title %}Club{% endblock %}
-                {% block head %}
-                    {{ parent() }}
-                    <style type="text/css">
-                        .important { color: #336699; }
-
-                    </style>
-                {% endblock %}
-                {% block content %}
-                    <div class="big-div-club">
-                        <h1>Interface club</h1>
-                    </div>
-                    <center>
-
-                        <h1>Recherche club par nom</h1>
-                        {{ form (form) }}
-                        <h1>Liste des Club</h1>
-                    </center>
-                    <center>
                         <table table width="60%" height="20%" border="2" align="center">
                             <tr>
                                 <th>ID club</th>
@@ -134,8 +114,8 @@
                                     {% if (is_granted('ROLE_RESPONSABLE_SUPER_ADMIN'))
                                     or(is_granted('ROLE_SUPER_ADMIN'))
                                     or(is_granted('ROLE_ADMIN'))
-                                    or(is_granted('ROLE_RESPONSABLE_CLUB'))
                                     %}
+
                                         <td><a href="{{ path('club_supprime',{'id':c.id}) }}">Supprimer</a></td>
                                         <td><a href="{{ path('_club_modifier',{'id':c.id}) }}">Modifier</a></td>
                                     {% endif %}
@@ -143,18 +123,8 @@
                                 </tr>
                             {% endfor %}
                         </table>
-                    </center>
-
-
-
-
-
-
-                    <p class="important">
-
-                    </p>
-                {% endblock %}
-
+                    {% endif %}
+                </fieldset>
 
 
             </div>
