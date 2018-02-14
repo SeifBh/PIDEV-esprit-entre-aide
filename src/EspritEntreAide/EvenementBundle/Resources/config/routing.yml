@@ -42,3 +42,6 @@ _refuser_prop_events:
 _participer_events:
     path:     /participerevent
     defaults: { _controller: EvenementBundle:Default:participerEvent }
+_afficher_tri_events:
+    path:     /affichertrievent
+    defaults: { _controller: EvenementBundle:Default:afficherTri }

@@ -10,4 +10,7 @@ namespace EspritEntreAide\EvenementBundle\Repository;
  */
 class EvenementRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function trier(){
+        return $this->findBy(array('etat'=>0), array('dateE'=>'ASC'));
+    }
 }

@@ -3,6 +3,7 @@
 namespace EspritEntreAide\EvenementBundle\Controller;
 
 use EspritEntreAide\EvenementBundle\Entity\Evenement;
+use EspritEntreAide\EvenementBundle\Form\Evenement2Type;
 use EspritEntreAide\EvenementBundle\Form\EvenementType;
 use EspritEntreAide\EvenementBundle\Form\ModiferEvtType;
 use EspritEntreAide\EvenementBundle\Form\RechercheClubType;
@@ -29,29 +30,54 @@ class DefaultController extends Controller
         )
         {
             $evt->setEtat(0);
+            $form = $this->createForm(EvenementType::class, $evt);
+            $form->handleRequest($request); /*creation d'une session pr stocker les valeurs de l'input*/
+            if ($form->isValid()) {
+                $evt->setIdUser($this->getUser());
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($evt);
+                $em->flush();
+            }
+            return $this->render('@Evenement/Evenement/ajout.html.twig', array(
+                'form' => $form->createView()
+            ));
         }
         if ($this->get('security.authorization_checker')->isGranted('ROLE_ETUDIANT'))
         {
             $evt->setEtat(1);
             $evt->setUsrRole("Etudiant") ;
+            $form = $this->createForm(Evenement2Type::class, $evt);
+            $form->handleRequest($request); /*creation d'une session pr stocker les valeurs de l'input*/
+            if ($form->isValid()) {
+                $evt->setIdUser($this->getUser());
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($evt);
+                $em->flush();
+
+            }
+            return $this->render('@Evenement/Evenement/ajout.html.twig', array(
+                'form' => $form->createView()
+            ));
         }
         if ( $this->get('security.authorization_checker')->isGranted('ROLE_ENSEIGNANT'))
         {
             $evt->setEtat(1);
             $evt->setUsrRole("Enseignant") ;
+            $form = $this->createForm(Evenement2Type::class, $evt);
+            $form->handleRequest($request); /*creation d'une session pr stocker les valeurs de l'input*/
+            if ($form->isValid()) {
+                $evt->setIdUser($this->getUser());
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($evt);
+                $em->flush();
+            }
+            return $this->render('@Evenement/Evenement/ajout.html.twig', array(
+                'form' => $form->createView()
+            ));
         }
 
-        $form = $this->createForm(EvenementType::class, $evt);
-        $form->handleRequest($request); /*creation d'une session pr stocker les valeurs de l'input*/
-        if ($form->isValid()) {
-            $evt->setIdUser($this->getUser());
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($evt);
-            $em->flush();
-        }
-        return $this->render('@Evenement/Evenement/ajout.html.twig', array(
-            'form' => $form->createView()
-        ));
+
+        return $this->render('@Evenement/Evenement/ajout.html.twig');
 
     }
 
@@ -207,4 +233,12 @@ class DefaultController extends Controller
         return $this->redirectToRoute('_afficher_events');
     }
 
+    public function afficherTriAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $evt = $em->getRepository("EvenementBundle:Evenement")->trier();
+        return $this->render('@Evenement/Evenement/afficher.html.twig', array(
+            "evts" => $evt
+        ));
+    }
 }

@@ -19,8 +19,7 @@
             or is_granted('ROLE_ADMIN')
             or is_granted('ROLE_RESPONSABLE_CLUB')
             or is_granted('ROLE_SUPER_ADMIN')
-            or is_granted('ROLE_ENSEIGNANT')
-            or is_granted('ROLE_ETUDIANT') %}
+             %}
                 {{ form_start(form) }}
                 <table border="2">
                     <tr>
@@ -49,7 +48,35 @@
                     </tr>
                 </table>
                 {{ form_end(form) }}
-            {% else %}
+                {% endif %}
+            {% if  is_granted('ROLE_ENSEIGNANT')
+            or is_granted('ROLE_ETUDIANT') %}
+                {{ form_start(form) }}
+                <table border="2">
+                    <tr>
+                        <th> Titre </th>
+                        <td>{{ form_widget(form.titreE) }}</td>
+                    </tr>
+                    <tr>
+                        <th> Description </th>
+                        <td>{{ form_widget(form.descE) }}</td>
+                    </tr>
+                    <tr>
+                        <th> Date </th>
+                        <td>{{ form_widget(form.dateE) }}</td>
+                    </tr>
+                    <tr>
+                        <th> Type </th>
+                        <td>{{ form_widget(form.typeE) }}</td>
+                    </tr>
+                    <tr>
+                        <th> Image JPEG </th>
+                        <td>{{ form_row(form.image) }}</td>
+                    </tr>
+                </table>
+                {{ form_end(form) }}
+
+                {% else %}
                 <br>
                 <b style="color: #dd4444">Vous ne pouvez pas ajouter d'evenements, merci de contacter votre administrateur systeme ou de s'inscrire</b>
             {% endif %}
