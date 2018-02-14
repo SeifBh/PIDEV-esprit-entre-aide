@@ -44,12 +44,14 @@
                         <td>{{ form_widget(form.idClub) }}</td>
                     </tr>
                     <tr>
-                        <th> Image JPEG (optionnel) </th>
+                        <th> Image JPEG </th>
                         <td>{{ form_row(form.image) }}</td>
                     </tr>
                 </table>
                 {{ form_end(form) }}
-            {% else %} <P color="RED">Vous ne pouvez pas ajouter d'evenements, merci de contacter votre administrateur systeme ou de s'inscrire</P>
+            {% else %}
+                <br>
+                <b style="color: #dd4444">Vous ne pouvez pas ajouter d'evenements, merci de contacter votre administrateur systeme ou de s'inscrire</b>
             {% endif %}
         </center>
     </div>
